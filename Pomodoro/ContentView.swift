@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Pomodoro
-//
-//  Created by Lucas Fischer on 09.04.26.
-//
-
 import SwiftUI
 
 struct ContentView: View {
