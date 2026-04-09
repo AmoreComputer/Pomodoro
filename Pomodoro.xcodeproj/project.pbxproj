@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A04E40722F8780EC008414A9 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = A04E40712F8780EC008414A9 /* Sparkle */; };
+		A04E40A62F8786E3008414A9 /* AmoreLicensing in Frameworks */ = {isa = PBXBuildFile; productRef = A04E40A52F8786E3008414A9 /* AmoreLicensing */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A04E40A62F8786E3008414A9 /* AmoreLicensing in Frameworks */,
 				A04E40722F8780EC008414A9 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +86,7 @@
 			name = Pomodoro;
 			packageProductDependencies = (
 				A04E40712F8780EC008414A9 /* Sparkle */,
+				A04E40A52F8786E3008414A9 /* AmoreLicensing */,
 			);
 			productName = Pomodoro;
 			productReference = A04E40222F877B5F008414A9 /* Pomodoro.app */;
@@ -115,6 +118,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				A04E40702F8780EC008414A9 /* XCRemoteSwiftPackageReference "Sparkle" */,
+				A04E40A42F8786E3008414A9 /* XCRemoteSwiftPackageReference "AmoreKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A04E40232F877B5F008414A9 /* Products */;
@@ -361,6 +365,14 @@
 				minimumVersion = 2.9.1;
 			};
 		};
+		A04E40A42F8786E3008414A9 /* XCRemoteSwiftPackageReference "AmoreKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AmoreComputer/AmoreKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -368,6 +380,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A04E40702F8780EC008414A9 /* XCRemoteSwiftPackageReference "Sparkle" */;
 			productName = Sparkle;
+		};
+		A04E40A52F8786E3008414A9 /* AmoreLicensing */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A04E40A42F8786E3008414A9 /* XCRemoteSwiftPackageReference "AmoreKit" */;
+			productName = AmoreLicensing;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
