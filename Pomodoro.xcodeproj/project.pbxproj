@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0412ADA2FCD731E002BBBB9 /* AmoreStore in Frameworks */ = {isa = PBXBuildFile; productRef = A0412AD92FCD731E002BBBB9 /* AmoreStore */; };
 		A04E40722F8780EC008414A9 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = A04E40712F8780EC008414A9 /* Sparkle */; };
 		A04E40A62F8786E3008414A9 /* AmoreLicensing in Frameworks */ = {isa = PBXBuildFile; productRef = A04E40A52F8786E3008414A9 /* AmoreLicensing */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A04E40A62F8786E3008414A9 /* AmoreLicensing in Frameworks */,
+				A0412ADA2FCD731E002BBBB9 /* AmoreStore in Frameworks */,
 				A04E40722F8780EC008414A9 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,10 +51,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0412AD82FCD731E002BBBB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A04E40192F877B5F008414A9 = {
 			isa = PBXGroup;
 			children = (
 				A04E40242F877B5F008414A9 /* Pomodoro */,
+				A0412AD82FCD731E002BBBB9 /* Frameworks */,
 				A04E40232F877B5F008414A9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,6 +97,7 @@
 			packageProductDependencies = (
 				A04E40712F8780EC008414A9 /* Sparkle */,
 				A04E40A52F8786E3008414A9 /* AmoreLicensing */,
+				A0412AD92FCD731E002BBBB9 /* AmoreStore */,
 			);
 			productName = Pomodoro;
 			productReference = A04E40222F877B5F008414A9 /* Pomodoro.app */;
@@ -378,6 +389,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A0412AD92FCD731E002BBBB9 /* AmoreStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A04E40A42F8786E3008414A9 /* XCRemoteSwiftPackageReference "AmoreKit" */;
+			productName = AmoreStore;
+		};
 		A04E40712F8780EC008414A9 /* Sparkle */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A04E40702F8780EC008414A9 /* XCRemoteSwiftPackageReference "Sparkle" */;

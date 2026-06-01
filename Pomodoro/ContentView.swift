@@ -9,7 +9,11 @@ struct ContentView: View {
         case .valid, .gracePeriod:
             TimerView()
         default:
-            LicenseView(licensing: licensing)
+            LicenseView(onActivate: activate)
         }
+    }
+    
+    private func activate(licenseKey: String) async throws {
+        try await licensing.activate(licenseKey: licenseKey)
     }
 }
