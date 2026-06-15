@@ -32,6 +32,13 @@ struct PomodoroApp: App {
         .windowResizability(.contentSize)
         .commands {
             CommandGroup(after: .appInfo) {
+                if case let .valid(license) = licensing.status {
+                    Text("Licensed Product: \(license.product.name)")
+                    if let email = license.customer?.email {
+                        Text("Licensed to: \(email)")
+                    }
+                }
+                
                 Button("Check for Updates…") {
                     updaterController.updater.checkForUpdates()
                 }
