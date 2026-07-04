@@ -1,22 +1,13 @@
 {
-  "originHash" : "50247545a0f8c2a2e6e04a54bc05f75e345bfdc124aa428a904bbf785e8eb2e1",
+  "originHash" : "ddfddd01315fc304b0b741517d099ae60a47e1f50cb8748935cc961f7df1f200",
   "pins" : [
     {
       "identity" : "amorekit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AmoreComputer/AmoreKit",
       "state" : {
-        "revision" : "5339f2c0c9e770ed97e7e623b4b8a705fe70b421",
-        "version" : "0.4.0"
-      }
-    },
-    {
-      "identity" : "jwt-kit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/vapor/jwt-kit.git",
-      "state" : {
-        "revision" : "a93a262fefb0938b799191b54f581ffa43422d96",
-        "version" : "5.5.0"
+        "revision" : "03a2b8a41cc26256ebfb9e9a909c209b53b35abb",
+        "version" : "0.5.0"
       }
     },
     {
@@ -38,30 +29,12 @@
       }
     },
     {
-      "identity" : "swift-certificates",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-certificates.git",
-      "state" : {
-        "revision" : "bde8ca32a096825dfce37467137c903418c1893d",
-        "version" : "1.19.1"
-      }
-    },
-    {
       "identity" : "swift-crypto",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-crypto.git",
       "state" : {
         "revision" : "1b6b2e274e85105bfa155183145a1dcfd63331f1",
         "version" : "4.5.0"
-      }
-    },
-    {
-      "identity" : "swift-log",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-log.git",
-      "state" : {
-        "revision" : "92448c359f00ebe36ae97d3bd9086f13c7692b5a",
-        "version" : "1.13.2"
       }
     }
   ],
