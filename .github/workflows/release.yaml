@@ -1,0 +1,73 @@
+name: Release
+run-name: Release ${{ github.event.repository.name }} ${{ github.ref_type == 'tag' && github.ref_name || format('({0})', github.event_name == 'workflow_dispatch' && inputs.channel || 'alpha') }}
+
+on:
+  push:
+    branches: [main]      # push to main    -> alpha
+    tags: ['v*']          # tag v1.2.3-beta -> beta
+                          # tag v1.2.3      -> stable
+  workflow_dispatch:
+    inputs:
+      channel:
+        type: choice
+        default: alpha
+        options:
+          - alpha
+          - beta
+          - stable
+        description: Channel for manual runs (stable = no channel)
+      build-number:
+        type: string
+        default: auto
+        description: Build number ("auto", "timestamp", or an integer)
+      marketing-version:
+        type: string
+        default: ""
+        description: Override marketing version (e.g. 1.2.3)
+
+concurrency:
+  group: amore-release
+  cancel-in-progress: true
+
+jobs:
+  release:
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+
+      # push to main -> alpha; tag containing "beta" -> beta; any other v* tag -> stable.
+      - name: Resolve channel
+        id: ctx
+        env:
+          EVENT: ${{ github.event_name }}
+          REF_TYPE: ${{ github.ref_type }}
+          REF_NAME: ${{ github.ref_name }}
+          INPUT_CHANNEL: ${{ inputs.channel }}
+        run: |
+          set -euo pipefail
+          channel=""
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            if [ "$INPUT_CHANNEL" != "stable" ]; then channel="$INPUT_CHANNEL"; fi
+          elif [ "$REF_TYPE" = "branch" ]; then
+            channel="alpha"
+          elif [ "$REF_TYPE" = "tag" ]; then
+            case "$REF_NAME" in *beta*) channel="beta" ;; esac
+          fi
+          echo "channel=$channel" >> "$GITHUB_OUTPUT"
+          echo "Resolved channel='${channel:-stable}'"
+
+      - uses: AmoreComputer/release-action@v1
+        with:
+          # xcode-path: /Applications/Xcode_16.app   # pin to avoid runner drift
+          scheme: Pomodoro
+          codesign-identity: ${{ secrets.CODESIGN_IDENTITY }}
+          dev-id-cert-p12: ${{ secrets.DEV_ID_CERT_P12 }}
+          dev-id-cert-password: ${{ secrets.DEV_ID_CERT_PASSWORD }}
+          sparkle-private-key: ${{ secrets.SPARKLE_PRIVATE_KEY }}
+          asc-api-key-id: ${{ secrets.ASC_API_KEY_ID }}
+          asc-api-issuer: ${{ secrets.ASC_API_ISSUER }}
+          asc-api-key: ${{ secrets.ASC_API_KEY }}
+          amore-token: ${{ secrets.AMORE_TOKEN }}
+          # false = account default (Amore+ clean, free watermarked); true keeps the watermark.
+          watermark: false
+          channel: ${{ steps.ctx.outputs.channel }}
