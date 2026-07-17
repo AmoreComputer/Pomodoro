@@ -60,6 +60,7 @@ jobs:
         with:
           # xcode-path: /Applications/Xcode_16.app   # pin to avoid runner drift
           scheme: Pomodoro
+          amore-cask: AmoreComputer/tap/amore
           codesign-identity: ${{ secrets.CODESIGN_IDENTITY }}
           dev-id-cert-p12: ${{ secrets.DEV_ID_CERT_P12 }}
           dev-id-cert-password: ${{ secrets.DEV_ID_CERT_PASSWORD }}
